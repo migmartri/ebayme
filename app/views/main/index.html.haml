@@ -1,6 +1,9 @@
 .text-center
   .intro
     Mantente alerta sobre si los productos que te interesan se mantienen al precio que te interesan
-      
+  
+  .info
+    - if $appId.blank? || $devId.blank? || $certId.blank? || $authToken.blank?
+      Las keys para hacer uso de la API de eBay no están configuradas. Accede a la <a href="http://github.com/nickel/ebayme/wikis">Wiki</a> para obtener información sobre como configurarlo.
 
       
