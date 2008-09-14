@@ -1,0 +1,36 @@
+#login-box
+  - @user.password = @user.password_confirmation = nil
+
+  - form_for :user, :url => users_path do |f| 
+    .field
+      = f.label :login, "Nick"
+      %br/
+      = f.text_field :login, :size => 17, :tabIndex => 1
+      = error_message_on :user, :login
+
+    .field
+      = f.label :email
+      %br/
+      = f.text_field :email, :size => 17, :tabIndex => 2
+      = error_message_on :user, :email
+
+    .field
+      = f.label :password
+      %br/
+      = f.password_field :password, :size => 17, :tabIndex => 3
+      = error_message_on :user, :password
+
+    .field
+      = f.label :password_confirmation, "Confirma password"
+      %br/
+      = f.password_field :password_confirmation, :size => 17, :tabIndex => 4
+      = error_message_on :user, :password_confirmation
+
+    .field
+      = f.label :movil, "Móvil"
+      %br/
+      = f.text_field :movil, :size => 8, :tabIndex => 5
+      = error_message_on :user, :movil
+   
+    .field.text-center
+      = submit_tag 'Regístrate', :tabIndex => 6

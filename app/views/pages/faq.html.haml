@@ -1,0 +1,23 @@
+#faq
+  .text-center
+    %h1.title= 'F.A.Q.'
+    
+  .item
+    .question
+      %b='Q.'
+      ¿Para que sirve esto?
+    .answer
+      %b='A.'
+      Buena pregunta..
+
+  .item
+    .question
+      %b='Q.'
+      ¿Puedo tener un enlace para traerme un producto ebay directamente desde allí?
+    .answer
+      %b='A.'
+      Claro! Usa este enlace:
+      = "<a href=\"javascript:(function(){%20%20%20if%20(window.location.host%20==%20'cgi.sandbox.ebay.com'){%20%20%20%20%20var%20regexS%20=%20'[\\?&]'+'item'+'=([^&#]*)';%20%20%20}else%20%20%20{%20%20%20%20%20var%20regexS%20=%20'[\\?&]'+'hash'+'=([^&#]*)';%20%20%20%20%20%20%20}%20%20%20var%20regex%20=%20new%20RegExp(%20regexS%20);%20%20%20var%20results%20=%20regex.exec(%20document.URL);%20%20%20results%20=%20results[1].replace('item',%20'');%20url%20=%20'http://#{SITE_URL}/products/new?item='%20+%20results%20+%20'&min='%20+%20document.getElementById('DetailsCurrentBidValue').firstChild.innerHTML;%20w=window.open(url,'addwindow','status=yes,toolbar=no,width=350,height=365,scrollbars=yes');%20;})();\">eBay button</a>"
+      
+.text-center            
+  = link_to "Volver", root_path, :title => "Ir a la página principal"      

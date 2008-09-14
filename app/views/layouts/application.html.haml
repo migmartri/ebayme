@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %title= "eBay Movil 0.5.1"  
+    = stylesheet_link_tag 'blueprint/compressed', 'estilo'
+    = javascript_include_tag :defaults
+  %body
+    #container
+      #header.last
+        = link_to image_tag("logo_ebay.gif", :alt => "logo"), root_path, :title => "Página principal"
+  
+      #content
+        #user
+          = render :partial => 'users/user_bar'
+
+        - [:notice, :error].each do |tipo|
+          = content_tag "div", flash[tipo], :class => "text-center flash #{tipo == :notice ? "success" : tipo}" if flash[tipo]
+        
+        = yield
+      
+      #footer.text-center.last
+        = link_to "¿Quienes somos?", page_path("quienes")
+        \-
+        = link_to "Wiki", page_path("wiki")
+        %br/
+        De los chicos de
+        = link_to "Flowers In Space", "http://www.flowersinspace.com"
+        
+    .text-center.info
+      - if logged_in?
+        = "Las pujas se actualizaran cada #{pluralize TIME_REFRESH/60, "minuto"}."
+        %br/
+        PA: Precio actual | PM: Precio máximo
+      

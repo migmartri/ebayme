@@ -1,0 +1,8 @@
+- @product.number = params[:item] if params[:item]
+#form
+  - form_for :product, :url => products_path do |f|
+    = render :partial => 'form', :locals => {:f => f}
+    
+    %p.text-center
+      = f.submit "Añadir", :tabIndex => 3
+      = "o #{link_to "volver", root_path, :title => 'Ir a la página principal'}"

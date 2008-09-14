@@ -1,0 +1,13 @@
+--- 
+:backgroundrb: 
+  :port: 11008
+  :ip: 0.0.0.0
+  :environment: production
+  
+:schedules:
+  :ebay_worker:
+    :update_products:
+      :trigger_args:
+        :start: <%= Time.now + 5.seconds %>
+        :end: <%= Time.now + 1.year %>
+        :repeat_interval: <%= 1.minute %> 

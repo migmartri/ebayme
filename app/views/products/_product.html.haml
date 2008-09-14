@@ -1,0 +1,25 @@
+.product
+  .name
+    = link_to product.name, product.url
+  .time
+    - if product.finish_bid > Time.now
+      Finaliza en
+      = time_to_finish_in_words(product.finish_bid)
+    - else
+      Ya ha finalizado
+  .bid
+    PA:
+    = product.min_bid
+    $
+    %span{:class => "#{(es_mayor = product.max_bid >= product.min_bid) ? "green" : "red"}"}
+      PM:
+      = product.max_bid
+      $                
+      - if product.finish_bid > Time.now
+        = link_to image_tag("edit.png"), edit_product_path(product), :title => 'Editar producto'
+        
+  .smilie
+    - if es_mayor
+      = image_tag("happy.png", :alt => "Smiley feliz")
+    - else                    
+      = image_tag("sad.png", :alt => "Smiley triste")

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  name: MyString
+  end_bid: 2008-08-06 17:19:53
+  max_bid: 1.5
+
+two:
+  user_id: 1
+  name: MyString
+  end_bid: 2008-08-06 17:19:53
+  max_bid: 1.5

@@ -1,0 +1,12 @@
+Capfile
+.project
+nbproject
+.loadpath
+config/database.yml
+config/deploy.rb
+*.log
+db/schema.rb
+tmp/*
+.DS_Store
+db/*.sqlite3
+coverage/*

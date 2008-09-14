@@ -1,0 +1,13 @@
+.text-center
+  #links
+    %ul
+      %li= link_to "Nuevo producto", new_product_path, :title => 'Añade un nuevo producto'
+      %li= link_to "Productos finalizados", finished_products_path, :title => 'Ver productos ya terminados'
+
+  #products
+    - if !@products.blank?
+      = render :partial => 'product', :collection => @products
+    - else
+      = "-- No existe ningún producto activo --"
+
+  = periodically_call_remote(:url => {:action => 'update_products'}, :frequency => TIME_REFRESH, :update => 'products')

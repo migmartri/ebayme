@@ -1,0 +1,7 @@
+#form
+  - form_for :product, :url => product_path(@product), :html => {:method => :put} do |f|
+    = render :partial => 'form', :locals => {:f => f}    
+    
+    %p.text-center
+      = f.submit "Editar", :tabIndex => 3
+      = "o #{link_to "volver", root_path, :title => 'Ir a la página principal'}"

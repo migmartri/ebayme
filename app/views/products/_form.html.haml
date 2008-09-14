@@ -1,0 +1,21 @@
+.field
+  = f.label :number, "Número de producto"
+  - if action_name == "edit"
+    %br/
+    = @product.number
+  - else 
+    = f.text_field :number, :size => 17, :tabIndex => 1 
+    = error_message_on :product, :number
+.field
+  = f.label :max_bid, "Máximo a pagar"
+  %br/
+  = f.text_field :max_bid, :size => 5, :tabIndex => 2
+  € / $
+  = error_message_on :product, :max_bid
+  = error_message_on :product, :finish_bid
+  
+  - if @product.min_bid? || params[:min]
+    %br/
+    .info_field              
+      = "(debe superar los #{@product.min_bid || params[:min].match(/\d+.\d+/)} $)"
+  

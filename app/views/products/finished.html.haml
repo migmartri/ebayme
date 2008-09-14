@@ -1,0 +1,12 @@
+.text-center
+  #links
+    %ul
+      %li= link_to "Productos activos", root_path, :title => 'Ver productos'
+
+  #products
+    - if !@products.blank?
+      = render :partial => 'product', :collection => @products
+    - else
+      = "-- No existe ningún producto finalizado --"
+
+              

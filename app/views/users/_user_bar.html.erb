@@ -1,0 +1,11 @@
+<% if logged_in? -%>                                  
+  <div id="user-bar">
+    <div id="user-bar-greeting">Logueado como <span class="login"><%= current_user.login %></span></div>
+    <div id="user-bar-logout"><%= link_to image_tag("logout.png"), logout_path, { :title => "Log out" }    %></div>
+  </div>
+<% else -%>
+  <div id="user-bar-action">
+    <%= link_to "Loguéate",  login_path,  { :title => "Log in" } %> /
+    <%= link_to "Regístrate", signup_path, { :title => "Create an account" } %>
+  </div>
+<% end -%>

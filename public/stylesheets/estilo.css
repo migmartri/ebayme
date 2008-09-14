@@ -1,0 +1,113 @@
+body {
+  background-color: #ddd;
+  clear: both;
+  margin: 0;
+  padding: 0; }
+
+.text-center {
+  text-align: center; }
+
+.green {
+  color: #629f47;
+  font-weight: bolder; }
+
+.red {
+  color: #8a1f11; }
+
+.title {
+  font-size: 15px;
+  text-decoration: underline; }
+
+.title-little {
+  margin-bottom: 5px;
+  font-weight: bold; }
+
+li {
+  list-style-type: none; }
+
+#container {
+  background-color: white;
+  border-color: #888;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  margin: 0 auto;
+  padding: 10px;
+  width: 280px; }
+  #container #header {
+    text-align: center;
+    margin-top: 10px; }
+  #container #content {
+    min-height: 100px; }
+    #container #content #links {
+      font-size: 11px; }
+    #container #content #user {
+      margin-bottom: 10px;
+      margin-top: 10px; }
+      #container #content #user #user-bar-action {
+        text-align: center; }
+      #container #content #user #user-bar {
+        margin: 0 auto;
+        width: 150px; }
+        #container #content #user #user-bar #user-bar-greeting {
+          float: left; }
+          #container #content #user #user-bar #user-bar-greeting .login {
+            text-decoration: none;
+            color: #000000;
+            border-width: 0px 0px 2px 0px;
+            border-style: none none dotted none; }
+        #container #content #user #user-bar #user-bar-logout img {
+          padding-left: 5px;
+          padding-top: 2px; }
+    #container #content #login-box, #container #content #form {
+      margin: 0 auto;
+      width: 140px; }
+      #container #content #login-box .field,       #container #content #form .field {
+        margin: 10px 0px 10px 0px; }
+        #container #content #login-box .field .info_field,         #container #content #form .field .info_field {
+          color: #777;
+          font-size: 11px; }
+    #container #content #products {
+      margin: 10px 0px 10px 0px; }
+      #container #content #products .product {
+        margin: 5px 0px 5px 0px; }
+        #container #content #products .product .name {
+          font-weight: bolder; }
+    #container #content .intro {
+      margin: 20px 0px 20px 0px;
+      font-size: 14px; }
+    #container #content #quienes-somos .item .imagen {
+      float: left;
+      margin: 3px; }
+      #container #content #quienes-somos .item .imagen img {
+        border: 1px solid #999;
+        padding: 2px; }
+    #container #content #faq {
+      margin: 0 auto; }
+      #container #content #faq .item {
+        margin: 10px 0px 10px 10px;
+        width: 230px; }
+  #container #footer {
+    color: #444;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-top: 15px; }
+    #container #footer a {
+      color: #666;
+      font-weight: bolder; }
+      #container #footer a:hover {
+        color: #000; }
+
+.info {
+  margin-top: 10px;
+  color: #888;
+  font-size: 11px; }
+
+
+.formError {
+  color: red;
+  font-size: 12px;
+  margin: 0;
+  padding: 0; }
+
+.error_field {
+  border: 1px solid #BB0000; }
