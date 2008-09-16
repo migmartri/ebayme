@@ -15,4 +15,3 @@ end
 TIME_MIN_TO_SMS = 5.minutes
 TIME_REFRESH = 1.minute
 SITE_URL = RAILS_ENV == "development" ? "localhost:3000" : "ebay.flowersinspace.com"
-$tz = TZInfo::Timezone.get('Europe/Madrid')

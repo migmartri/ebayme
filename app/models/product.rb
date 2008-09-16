@@ -7,14 +7,14 @@ class Product < ActiveRecord::Base
   
   def validate
     errors.add("max_bid", "La puja máxima es menor que el mínimo a pujar") if max_bid && max_bid < min_bid
-    errors.add("finish_bid", "La puja ya está cerrada") if finish_bid <= Time.now
+    errors.add("finish_bid", "La puja ya está cerrada") if finish_bid <= Time.now.in_time_zone
   end
   
-  named_scope :unfinished, :conditions => ["finish_bid > ?", Time.now.utc.to_s(:db)], :order => 'finish_bid ASC'
-  named_scope :finished, :conditions => ["finish_bid <= ?", Time.now.utc.to_s(:db)], :order => 'finish_bid ASC'
+  named_scope :unfinished, :conditions => ["finish_bid > ?", Time.now.in_time_zone], :order => 'finish_bid ASC'
+  named_scope :finished, :conditions => ["finish_bid <= ?", Time.now.in_time_zone], :order => 'finish_bid ASC'
   
   def expire_in?(minutes)
-    self.finish_bid < Time.now + minutes
+    self.finish_bid < Time.now.in_time_zone + minutes
   end
   
   def lost?
@@ -22,7 +22,7 @@ class Product < ActiveRecord::Base
   end
   
   def setup(item, user)
-    self.finish_bid = $tz.utc_to_local(item.listingDetails.endTime).to_s(:db)
+    self.finish_bid = item.listingDetails.endTime.in_time_zone
     self.min_bid = item.sellingStatus.minimumToBid
     self.name = item.title
     self.url = item.listingDetails.viewItemURL.to_param

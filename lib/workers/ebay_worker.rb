@@ -4,7 +4,7 @@ class EbayWorker < BackgrounDRb::MetaWorker
   def update_products
     updte, sms = 0, 0 # Variables "estadísticas"
     
-    Product.find(:all, :conditions => ["finish_bid > ? OR sms = 0", Time.now]).each do |product|
+    Product.find(:all, :conditions => ["finish_bid > ? OR sms = 0", Time.now.in_time_zone]).each do |product|
       resp = find_product_in_ebay(product.number)
 
       # Si el precio del producto ha cambiado, lo actualizamos
@@ -25,7 +25,7 @@ class EbayWorker < BackgrounDRb::MetaWorker
       end
     end  
     
-    logger.info "Actualización realizada a las #{Time.now.to_s(:db)}. Se han actualizado #{updte} productos y mandado #{sms} mensajes."
+    logger.info "Actualización realizada a las #{Time.now.in_time_zone}. Se han actualizado #{updte} productos y mandado #{sms} mensajes."
   end
 end
 

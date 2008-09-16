@@ -2,7 +2,7 @@
   .name
     = link_to product.name, product.url
   .time
-    - if product.finish_bid > Time.now
+    - if product.finish_bid > Time.now.in_time_zone
       Finaliza en
       = time_to_finish_in_words(product.finish_bid)
     - else
@@ -15,7 +15,7 @@
       PM:
       = product.max_bid
       $                
-      - if product.finish_bid > Time.now
+      - if product.finish_bid > Time.now.in_time_zone
         = link_to image_tag("edit.png"), edit_product_path(product), :title => 'Editar producto'
         
   .smilie
